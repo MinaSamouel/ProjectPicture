@@ -51,7 +51,7 @@ function setRandomImage() {
   const randomImage =
     availableImages[Math.floor(Math.random() * availableImages.length)];
 
-  img.src = `./src/media1/${randomImage}.jpg`;
+  img.src = `./src/Media1/${randomImage}.jpg`;
   imageNameDiv.textContent = `[${randomImage}]`;
 }
 
