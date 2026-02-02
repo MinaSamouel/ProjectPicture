@@ -1,0 +1,188 @@
+:root {
+    --gray-bg: #f3f4f6;
+    --gray-surface: #BFC9D1;
+    --gray-primary: #212529;
+    /* Dark charcoal */
+    --gray-secondary: #6c757d;
+    --gray-border: #dee2e6;
+    --gray-grid-cell: #adb5bd;
+    --gold-accent: #d4af37;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gray-bg);
+    color: var(--gray-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.main-container {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Image wrapper */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--gray-surface);
+}
+
+.image-wrapper img {
+    /* width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block; */
+
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* consistent frame */
+    background-color: var(--gray-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.05);
+}
+.image-container {
+    background: linear-gradient(
+        135deg,
+        #bfc9d1,
+        #e5e7eb
+    );
+}
+
+
+
+/* Overlay grid */
+.overlay-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-cell {
+    background: var(--gray-grid-cell);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: clamp(12px, 2vw, 20px);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.grid-cell.revealed {
+    background: transparent;
+    color: transparent;
+    border-color: transparent;
+}
+
+/* Chosen list */
+.chosen-list {
+    margin-top: 30px;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--gray-surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Bootstrap Overrides & Custom Buttons */
+.btn-primary {
+    background-color: var(--gray-primary);
+    border-color: var(--gray-primary);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-secondary {
+    background-color: var(--gray-surface);
+    border-color: var(--gray-border);
+    color: var(--gray-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+    color: #000;
+}
+
+.text-warning {
+    color: var(--gold-accent) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for highlighting the grid cell */
+@keyframes flash {
+
+    0%,
+    100% {
+        background-color: var(--gray-grid-cell);
+        transform: scale(1);
+    }
+
+    50% {
+        background-color: var(--gold-accent);
+        transform: scale(1.05);
+    }
+}
+
+.grid-cell.highlight {
+    animation: flash 0.6s infinite;
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.teams-editor input {
+    max-width: 250px;
+    background-color: var(--gray-surface);
+    border: 1px solid var(--gray-border);
+    color: var(--gray-primary);
+}
+
+.teams-editor button {
+    white-space: nowrap;
+}
+
+.btn-outline-primary {
+    color: var(--gray-primary);
+    border-color: var(--gray-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--gray-primary);
+    border-color: var(--gray-primary);
+    color: #fff;
+}
