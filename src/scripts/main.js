@@ -34,7 +34,7 @@ revealAllBtn.addEventListener("click", () => {
    markImageAsUsed(imageNameDiv.textContent.replace(/\[|\]/g, ""));
 });
 
-const TOTAL_IMAGES = 20; // adjust to your actual count
+const TOTAL_IMAGES = 32; // adjust to your actual count
 
 function setRandomImage() {
   const usedImages = getUsedImages();
